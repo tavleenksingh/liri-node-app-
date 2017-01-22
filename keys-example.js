@@ -1,8 +1,8 @@
 console.log('this is loaded');
 
 exports.twitterKeys = {
-  consumer_key: '<input here>',
-  consumer_secret: '<input here>',
-  access_token_key: '<input here>',
-  access_token_secret: '<input here>',
+  consumer_key: 'secretKeyHere',
+  consumer_secret: 'secretKeyHere',
+  access_token_key: 'secretKeyHere',
+  access_token_secret: 'secretKeyHere',
 }
