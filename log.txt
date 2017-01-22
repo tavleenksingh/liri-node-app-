@@ -1,7 +1,0 @@
-Sat Jan 21 2017 17:51:02 GMT-0800 (PST)
-node liri.js spotify-this-song The sign
-Artist: Ty Dolla $ign
-Song Name: Or Nah (feat. The Weeknd, Wiz Khalifa and DJ Mustard) - Remix
-Preview Link: https://p.scdn.co/mp3-preview/70f126c139847335bc03c756c55b80c99892268e?cid=null
-Album Name: Or Nah (feat. The Weeknd, Wiz Khalifa and DJ Mustard) [Remix Version]
-------------------
