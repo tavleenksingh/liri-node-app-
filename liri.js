@@ -10,7 +10,7 @@ var nodeArgs = process.argv;
 // Store the argument at index number 2 as the user command
 var userCommand = nodeArgs[2];
 
-// Create an empty variable for holding the movie or song name
+// Create an empty variable for holding the movie or song name given by the user
 var queryName = "";
 
   // Loop through all the words in the node argument
@@ -49,8 +49,9 @@ function myTweets(){
   // Using the require keyword lets us access all of the exports
   // in our keys.js file
   var keys = require("./keys.js");
+  var logTweets = "";
 
-  //Instantiate the twitter component 
+  // Instantiate the twitter component 
   var client = new twitter({
       consumer_key: keys.twitterKeys.consumer_key,
       consumer_secret: keys.twitterKeys.consumer_secret,
@@ -69,20 +70,22 @@ function myTweets(){
 
         // else log my tweets and when they were created 
         else{
-            //loop through all my tweets and log them
+            // loop through all my tweets and log them
             for(i = 0; i < tweets.length; i++){
-                var logTweets = "Tweet created at: " + tweets[i].created_at + '\n' + "My Tweet: " + tweets[i].text + '\n' + "_____________________________" + '\n';
+                logTweets = "Tweet created at: " + tweets[i].created_at + '\n' + "My Tweet: " + tweets[i].text + '\n' + "_____________________________" + '\n';
                 console.log(logTweets);
 
-                // appending my tweets to the log.txt file
+
+
+                      // appending my tweets to the log.txt file
                 fs.appendFile("log.txt", logTweets, function(err) {
 
-                    // If an error was experienced we say it.
-                    if (err) {
-                        console.log(err);
-                    }
-                });
-            }
+                  // If an error was experienced we say it.
+                  if (err) {
+                      console.log(err);
+                  }
+                }); 
+            }  
         }
   });
 }
@@ -96,8 +99,9 @@ function spotifyThisSong() {
   var song = queryName;
 
   //if there is no user input then default to song "The Sign"
-    if(queryName === ""){
-      song === "The Sign";
+    if(song === ""){
+      song = "The Sign";
+      // console.log(song);
     }
 
   // Make a call to Spotify API to search for the track input given by user and log in the details asked as part of this homework
@@ -114,7 +118,7 @@ function spotifyThisSong() {
           var songName = "Song Name: " + songInfo.name;
           var album = "Album: " + songInfo.album.name;
           var preview = "Preview Link: " + songInfo.preview_url;
-          var songLog = artist + "\n" + songName + "\n" + album + "\n" + preview + "\n" + "___________________";
+          var songLog = artist + "\n" + songName + "\n" + album + "\n" + preview + "\n" + "___________________________" +"\n";
 
           // log all the information to console
           console.log(songLog);
@@ -138,9 +142,9 @@ function movieThis(){
     //create a variable to hold the user input 
     var movie = queryName;
       //if there is no user input then default to movie "Mr. Nobody"
-      if(queryName === ""){
-        movie === "Mr. Nobody";
-        console.log(movie);
+      if(movie === ""){
+        movie = "Mr. Nobody";
+        // console.log(movie);
       }
     // create variable to hold the query url to query omdb
     var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&r=json&tomatoes=true";
@@ -165,7 +169,7 @@ function movieThis(){
       var tomatorating = "Tomato Rating: " + JSON.parse(body).tomatoRating;
       var tomatourl = "Tomato URL: " + JSON.parse(body).tomatoURL;
 
-      var movieData = title + "\n" + year + "\n" + rating + "\n" + country + "\n" + language + "\n" + plot + "\n" + actors + "\n" + tomatorating + "\n" + tomatourl + "\n" + "_____________________";
+      var movieData = title + "\n" + year + "\n" + rating + "\n" + country + "\n" + language + "\n" + plot + "\n" + actors + "\n" + tomatorating + "\n" + tomatourl + "\n" + "_______________________________________" + "\n";
 
       //logging movie data to console and appending to log.txt
       console.log(movieData);
